@@ -318,6 +318,34 @@ public class WebDriverUtilityMethods {
 	driver.get(url);
    }
    /**
+    * handle windows whenever we have only two windows
+    * @param titl
+    */
+   public void twoWindowhandles( WebDriver driver) {
+	   String mainid= driver.getWindowHandle();
+	   Set<String> allId = driver.getWindowHandles();
+	   for(String i:allId) {
+		  if(!i.equals(mainid)) {
+			  driver.switchTo().window(i);
+		  }
+		  
+	   }
+   }
+   
+   
+   public void twoWindowhandlesCloseWindow( WebDriver driver) {
+	   String mainid= driver.getWindowHandle();
+	   Set<String> allId = driver.getWindowHandles();
+	   for(String i:allId) {
+		  if(!i.equals(mainid)) {
+			  driver.switchTo().window(i);
+			  driver.close();
+		  }
+		  
+	   }
+   }
+   
+   /**
     * handle windows by using title
     * @param titl
     */
@@ -330,6 +358,9 @@ public class WebDriverUtilityMethods {
 			}
 	   }
    }
+   
+   
+   
    /**
     * get the all ids of windows which are opened at that particular instance
     * @return

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Genericmethods.WebDriverUtilityMethods;
+
 public class LeadPagePomClass {
 	//identify the add new button
    @FindBy(xpath = "//img[@title='Create Lead...']")
@@ -60,7 +62,33 @@ public class LeadPagePomClass {
    @FindBy(xpath = "//input[@name='selected_id']/../following-sibling::td[contains(text(),'L')]")
    private  List<WebElement> allleadnames;
    
+   //identify the mass edit button
+   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Mass Edit']")	   
+   private WebElement massedit; 
+ //identify the send mail button
+   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Send Mail']")	   
+   private WebElement sendmail; 
+ //identify the export button
+   @FindBy(xpath = "//img[@title='Export Leads']")	   
+   private WebElement exportleads; 
    
+   
+ 	//identify the export leads download button
+ 	   @FindBy(name = "Export")
+ 	   private WebElement exportleadsdownload;
+ 	   
+ 	  //identify the select email id type
+ 		   @FindBy(xpath  = "//input[@class='crmbutton small create' and @name='Select']")
+ 		   private WebElement selectemailidtype;
+ 		   //identify the select email id type 
+ 		   @FindBy(id="subject")
+ 		   private WebElement composeemailsubject;
+ 		   
+ 		   //identify the send button in email
+ 		   @FindBy(xpath = "//input[@name='Send']")
+ 		   private WebElement sendemailonCompose;
+ 		 
+	   
 	public LeadPagePomClass(WebDriver driver) {
 		
 		PageFactory.initElements(driver, this);
@@ -274,5 +302,88 @@ public class LeadPagePomClass {
 			String name= e.getText();
 			System.out.println(name);
 		}
+	}
+/**
+ * return all web elements of lead names
+ * @return
+ */
+	public List<WebElement> getAllleadnames() {
+		return allleadnames;
+	}
+/**
+ * return web element mass edit button
+ * @return
+ */
+	public WebElement getMassedit() {
+		return massedit;
+	}
+/**
+ * return web element send mail button
+ * @return
+ */
+	public WebElement getSendmail() {
+		return sendmail;
+	}
+/**
+ * return web element export leads button
+ * @return
+ */
+	public WebElement getExportleads() {
+		return exportleads;
+	}
+	
+	/**
+	 * click the mass edit button
+	 */
+	public void clickMassEditButton() {
+		massedit.click();
+	}	
+	/**
+	 * click the send mail button
+	 */
+	public void clicksendMailButton() {
+		sendmail.click();
+	}
+	/**
+	 * click the export leads button
+	 */
+	public void clickExportLeadsButton() {
+		exportleads.click();
+	}
+
+	public WebElement getExportleadsdownload() {
+		return exportleadsdownload;
+	}
+
+	public WebElement getSelectemailidtype() {
+		return selectemailidtype;
+	}
+
+	public WebElement getComposeemailsubject() {
+		return composeemailsubject;
+	}
+
+	public WebElement getSendemailonCompose() {
+		return sendemailonCompose;
+	}
+	
+	
+
+	/**
+	 * click the export leads download button
+	 */
+	public void clickexportleadsDownload() {
+		exportleadsdownload.click();
+	}
+	public void clickselectmailidtype() {
+		selectemailidtype.click();
+	}
+	public void sendComposemailSubject(WebDriver driver) {
+		WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+		w.twoWindowhandles(driver);
+		composeemailsubject.sendKeys("hiii");
+	}
+	public void clickSendEmailonCompose() {
+		sendemailonCompose.click();
 	}
 }

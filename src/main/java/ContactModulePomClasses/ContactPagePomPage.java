@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Genericmethods.WebDriverUtilityMethods;
+
 public class ContactPagePomPage {
 
 	
@@ -58,6 +60,41 @@ public class ContactPagePomPage {
 		   //identify the all organization names 
 		   @FindBy(xpath = "//input[@name='selected_id']/../following-sibling::td[contains(text(),'CO')]")
 		   private  List<WebElement> allconatctnames;
+		   
+		   //identify the mass edit button
+	   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Mass Edit']")	   
+	   private WebElement massedit; 
+	 //identify the send mail button
+	   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Send Mail']")	   
+	   private WebElement sendmail; 
+	 //identify the export button
+	   @FindBy(xpath = "//img[@title='Export Contacts']")	   
+	   private WebElement exportcontacts; 
+		   
+	   
+	// identify the organization   
+	   @FindBy(xpath = "//tbody/tr[5]/td[2]/img[1]")
+	   private WebElement organizationname;
+	   
+	 //identify the organization in new web page
+	   @FindBy(xpath = "//a[text()='vtigerCRM Inc']")	   
+	   private WebElement selectorg; 
+		
+	   
+	 //identify the export organizations download button
+	   @FindBy(name = "Export")
+	   private WebElement exportcontactsdownload;
+	   
+		 //identify the select email id type
+		   @FindBy(xpath  = "//input[@class='crmbutton small create' and @name='Select']")
+		   private WebElement selectemailidtype;
+		   //identify the select email id type 
+		   @FindBy(id="subject")
+		   private WebElement composeemailsubject;
+		   
+		   //identify the send button in email
+		   @FindBy(xpath = "//input[@name='Send']")
+		   private WebElement sendemailonCompose;
 		   
 	   
 		public ContactPagePomPage(WebDriver driver) {
@@ -276,5 +313,110 @@ public class ContactPagePomPage {
 		public List<WebElement> getAllconatctnames() {
 			return allconatctnames;
 		}
+/**
+ * return web element mass edit button
+ * @return
+ */
+public WebElement getMassedit() {
+	return massedit;
+}
+/**
+ * return web element sen mail button
+ * @return
+ */
+public WebElement getSendmail() {
+	return sendmail;
+}
+/**
+ * return web element export contacts button
+ * @return
+ */
+public WebElement getExportcontacts() {
+	return exportcontacts;
+}
+/**
+ * click the mass edit button
+ */
+public void clickMassEditButton() {
+	massedit.click();
+}	
+/**
+ * click the send mail button
+ */
+public void clicksendMailButton() {
+	sendmail.click();
+}
+/**
+ * click the export leads button
+ */
+public void clickExportLeadsButton() {
+	exportcontacts.click();
+}
+/**
+ *  return web element organization name
+ * @return
+ */
+		public WebElement getOrganizationname() {
+			return organizationname;
+		}
+/**
+ * return web element select organization of another web page 
+ * @return
+ */
+		public WebElement getSelectorg() {
+			return selectorg;
+		}
+		/**
+		 * click the organization name
+		 */
+		public void clickOrganizationName() {
+			organizationname.click();
+		}
 		
+		/**
+		 * select the member which is present in another web page and switched to default
+		 * @param driver
+		 */
+		public void selectOrganization(WebDriver driver) {
+			WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+			w.twoWindowhandles(driver);
+			selectorg.click();
+			
+			
+		}
+		
+		/**
+		 * click the export organizations download button
+		 */
+		public void clickexportContactsDownload() {
+			exportcontactsdownload.click();
+		}
+		public void clickselectmailidtype() {
+			selectemailidtype.click();
+		}
+		public void sendComposemailSubject(WebDriver driver) {
+			WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+			w.twoWindowhandles(driver);
+			composeemailsubject.sendKeys("hiii");
+		}
+		public void clickSendEmailonCompose() {
+			sendemailonCompose.click();
+		}
+
+		public WebElement getExportcontactsdownload() {
+			return exportcontactsdownload;
+		}
+
+		public WebElement getSelectemailidtype() {
+			return selectemailidtype;
+		}
+
+		public WebElement getComposeemailsubject() {
+			return composeemailsubject;
+		}
+
+		public WebElement getSendemailonCompose() {
+			return sendemailonCompose;
+		}
+
 }

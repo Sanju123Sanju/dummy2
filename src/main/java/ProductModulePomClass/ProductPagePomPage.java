@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Genericmethods.WebDriverUtilityMethods;
+
 public class ProductPagePomPage {
 
 	//identify the add new button
@@ -59,8 +61,14 @@ public class ProductPagePomPage {
 		   @FindBy(xpath = "//input[@name='selected_id']/../following-sibling::td[contains(text(),'P')]")
 		   private  List<WebElement> allproductnames;
 		 
-	   
-	   
+		 //identify the vendor name 
+		   @FindBy(xpath = "//img[@title='Select']")
+		   private WebElement vendornamebutton;
+			
+		   //identify the vendor name in vendors
+		   @FindBy(xpath = "//a[text()='Barbara']")
+		   private WebElement selectvendor;
+			
 	   
 		 public ProductPagePomPage(WebDriver driver) {
 			
@@ -276,4 +284,34 @@ public class ProductPagePomPage {
 		public List<WebElement> getAllproductnames() {
 			return allproductnames;
 		}
+/**
+ * return web element vendor name button
+ * @return
+ */
+public WebElement getVendornamebutton() {
+	return vendornamebutton;
+}
+/**
+ * return web element vendor name
+ * @return
+ */
+public WebElement getSelectvendor() {
+	return selectvendor;
+}
+/**
+ * click the vendor name button
+ */
+public void clickVendorNameButton() {
+	vendornamebutton.click();
+}
+/**
+ * select the vendor which is present in another web page and switched to default
+ * @param driver
+ */
+public void selectVendor(WebDriver driver) {
+	WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+	w.twoWindowhandles(driver);
+	selectvendor.click();
+	
+}
 }

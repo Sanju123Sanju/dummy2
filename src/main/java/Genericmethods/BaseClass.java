@@ -1,4 +1,4 @@
-package Genericmethods;
+ package Genericmethods;
 
 
 
@@ -20,17 +20,18 @@ public class BaseClass {
 
 	
 	  @BeforeClass
-	  public void openBrowser() {
+	  public void openBrowser() throws Throwable {
 			WebDriverManager.chromedriver().setup();
 			driver= new ChromeDriver();
 			w.maximize(driver);
 		  w.implicitWait(10, driver);
+		  w.OpenWebPage(f.FetchKeyValueFromProperty("url"), driver);
 	  }
 
   @BeforeMethod
   public void login() throws Throwable {
 	  
-	  w.OpenWebPage(f.FetchKeyValueFromProperty("url"), driver);
+	 
 	  LoginPomPage l= new LoginPomPage(driver) ;
 		l.performLogin(f.FetchKeyValueFromProperty("un"), f.FetchKeyValueFromProperty("pwd"));
 		

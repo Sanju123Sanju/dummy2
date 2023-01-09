@@ -6,7 +6,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Genericmethods.WebDriverUtilityMethods;
+
 public class LoginPomPage {
+	WebDriverUtilityMethods w= new WebDriverUtilityMethods();
 //identify the username textbox
 	@FindBy(name="user_name") 
     private	WebElement  un;
@@ -21,7 +24,7 @@ public class LoginPomPage {
 	@FindBy(xpath = "//td[@class='small']/img")
 	private	WebElement  logoutimg;
 	
-	@FindBy(xpath = "//td[@class='small']/img")
+	@FindBy(linkText  = "Sign Out")
 	private	WebElement  signout;
 	
 	public LoginPomPage(WebDriver driver) {
@@ -51,7 +54,8 @@ public class LoginPomPage {
 	}
 	
 	//perform login without using getters
-	public void performLogin(String username, String password) {
+	public void performLogin(String username, String password) throws Throwable {
+	    Thread.sleep(3000);
 		un.sendKeys(username);
 		pwd.sendKeys(password);
 		login.click();
@@ -76,10 +80,11 @@ public class LoginPomPage {
 	 * @param driver
 	 * @throws Throwable
 	 */
-	public void performLogout(WebDriver driver) throws Throwable {		
-		Actions act= new Actions(driver);
+	public void performLogout(WebDriver driver) throws Throwable {	
+		
+		WebDriverUtilityMethods w= new WebDriverUtilityMethods();
 		Thread.sleep(3000);
-		act.moveToElement(logoutimg);
+		w.MoveToElement(logoutimg,driver);
 		Thread.sleep(3000);
 		signout.click();
 		

@@ -64,8 +64,51 @@ public class OrganizationPagePomPage {
 	   @FindBy(xpath = "//input[@name='selected_id']/../following-sibling::td[contains(text(),'AC')]")
 	   private  List<WebElement> allorganizationnames;
 	   
-	 
+	   //identify the mass edit button
+	   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Mass Edit']")	   
+	   private WebElement massedit; 
+	 //identify the send mail button
+	   @FindBy(xpath = "//input[@class='crmbutton small edit' and @value='Send Mail']")	   
+	   private WebElement sendmail; 
+	 //identify the export button
+	   @FindBy(xpath = "//img[@title='Export Organizations']")	   
+	   private WebElement exportorgs; 
 	   
+		// identify the member of   
+	   @FindBy(xpath = "//tbody/tr[6]/td[2]/img[1]")
+	   private WebElement memberof;
+	   
+	 //identify the select in new web page
+	   @FindBy(xpath = "//a[text()='vtigerCRM Inc']")	   
+	   private WebElement selectmember; 
+	   
+	   
+		//identify the export organizations download button
+	   @FindBy(name = "Export")
+	   private WebElement exportorgsdownload;
+	   
+	 
+	 //identify the export mails of organizations 
+	   @FindBy(xpath = "//input[@value='Mailer Export']")
+	   private WebElement exportmails;
+	   
+
+		 //identify the export mails of organizations download button
+		   @FindBy(xpath  = "//input[@name='button']")
+		   private WebElement mailexportorgsdownload;
+		   
+	   
+		 //identify the select email id type
+		   @FindBy(xpath  = "//input[@class='crmbutton small create' and @name='Select']")
+		   private WebElement selectemailidtype;
+		   //identify the select email id type 
+		   @FindBy(id="subject")
+		   private WebElement composeemailsubject;
+		   
+		   //identify the send button in email
+		   @FindBy(xpath = "//input[@name='Send']")
+		   private WebElement sendemailonCompose;
+		   
 	   public OrganizationPagePomPage(WebDriver driver) {
 			
 			PageFactory.initElements(driver, this);
@@ -281,5 +324,144 @@ public class OrganizationPagePomPage {
 				System.out.println(name);
 			}
 		}
+/**
+ * return web element mass button
+ * @return
+ */
+		public WebElement getMassedit() {
+			return massedit;
+		}
+/**
+ * return web element send mail button
+ * @return
+ */
+		public WebElement getSendmail() {
+			return sendmail;
+		}
+/**
+ * return web element export organizations button
+ * @return
+ */
+		public WebElement getExportorgs() {
+			return exportorgs;
+		}
+		/**
+		 * click the mass edit button
+		 */
+		public void clickMassEditButton() {
+			massedit.click();
+		}	
+		/**
+		 * click the send mail button
+		 */
+		public void clicksendMailButton() {
+			sendmail.click();
+		}
+		/**
+		 * click the export organizations button
+		 */
+		public void clickExportOrgsButton() {
+			exportorgs.click();
+		}
+/**
+ *  return web element member of
+ * @return
+ */
+		public WebElement getMemberof() {
+			return memberof;
+		}
+/**
+ * return web element select member of another web page 
+ * @return
+ */
+		public WebElement getSelectmember() {
+			return selectmember;
+		}
+		/**
+		 * click the member of
+		 */
+		public void clickMemberof() {
+			memberof.click();
+		}
 		
+		/**
+		 * select the member which is present in another web page and switched to default
+		 * @param driver
+		 */
+		public void selectMemberOfOrg(WebDriver driver) {
+			WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+			w.twoWindowhandles(driver);
+			selectmember.click();
+			driver.switchTo().alert().dismiss();
+			
+		}
+		
+		/**
+		 * click the export organizations download button
+		 */
+		public void clickexportOrgsDownload() {
+			exportorgsdownload.click();
+		}
+/**
+ * return web element export organizations download button
+ * @return
+ */
+		public WebElement getExportorgsdownload() {
+			return exportorgsdownload;
+		}
+/**
+ * return web element the export mails button
+ * @return
+ */
+public WebElement getExportmails() {
+	return exportmails;
+}
+/**
+ * return web element the export mails download button
+ * @return
+ */
+public WebElement getMailexportorgsdownload() {
+	return mailexportorgsdownload;
+}
+/**
+ *return web element select mail id type
+ * @return
+ */
+public WebElement getSelectemailidtype() {
+	return selectemailidtype;
+}
+/**
+ * return web element compose email subject text box
+ * @return
+ */
+public WebElement getComposeemailsubject() {
+	return composeemailsubject;
+}
+/**
+ * return web element compose email send button
+ * @return
+ */
+public WebElement getSendemailonCompose() {
+	return sendemailonCompose;
+}
+
+public void clickexportmails() {
+	exportmails.click();
+}
+
+public void clickexportmailsdownload() {
+	mailexportorgsdownload.click();
+}
+
+public void clickselectmailidtype() {
+	selectemailidtype.click();
+}
+public void sendComposemailSubject(WebDriver driver) {
+	WebDriverUtilityMethods w= new WebDriverUtilityMethods();
+	w.twoWindowhandles(driver);
+	composeemailsubject.sendKeys("hiii");
+}
+public void clickSendEmailonCompose() {
+	sendemailonCompose.click();
+}
 }
