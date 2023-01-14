@@ -3,11 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="GenericMethods__tcs.DemoClass">
+      <class name="NewltDevFeaturesTcs.sendBulkMail_LeadsWithReceipients">
         <methods>
-          <include name="m1"/>
+          <include name="logout"/>
+          <include name="closeBrowser"/>
+          <include name="createLeadWith_3_Details"/>
+          <include name="sendBulkMail_OrganizationsWithoutReceipients"/>
+          <include name="login"/>
+          <include name="openBrowser"/>
         </methods>
-      </class> <!-- GenericMethods__tcs.DemoClass -->
+      </class> <!-- NewltDevFeaturesTcs.sendBulkMail_LeadsWithReceipients -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

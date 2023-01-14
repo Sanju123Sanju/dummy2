@@ -27,9 +27,9 @@ public class sendBulkMail_LeadsWithReceipients extends BaseClass {
 			Thread.sleep(3000);
 			l.sendComposemailSubject(driver);
 			Thread.sleep(3000);
-		//	l.clickSendEmailonCompose();
-		//	w.alertSwitch(driver).accept();
-		//	driver.close();
+	//	l.clickSendEmailonCompose();
+	//		w.alertSwitch(driver).accept();
+	//		driver.close();
 		
 		     w.twoWindowhandles(driver);
 	}

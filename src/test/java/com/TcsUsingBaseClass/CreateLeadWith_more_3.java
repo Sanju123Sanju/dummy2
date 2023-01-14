@@ -40,7 +40,7 @@ public class CreateLeadWith_more_3 extends BaseClass {
 			l.nameText(data);
 			l.companyText(company);	
 			l.emailText(email);
-			l.phoneText("+91"+phone);
+			l.phoneText("91"+phone);
 			l.websiteText(website);
 			l.clickSave();	
 	}
