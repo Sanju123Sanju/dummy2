@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="NewltDevFeaturesTcs.SendMailBulkContacts"/>
+      <class name="NewltDevFeaturesTcs.SendBulkMailWithoutSelectAtleastOneOrg"/>
+      <class name="NewltDevFeaturesTcs.SendBulkMailWithoutSelectAtleastOneContact"/>
+      <class name="NewltDevFeaturesTcs.CreateContactWithoutOrganization"/>
+      <class name="NewltDevFeaturesTcs.SendBulkMailWithoutSelectAtleastOneLead"/>
+      <class name="NewltDevFeaturesTcs.CreateOrgWithOutMemberOf"/>
+      <class name="NewltDevFeaturesTcs.ExportOrganizations"/>
+      <class name="NewltDevFeaturesTcs.sendBulkMail_LeadsWithReceipients"/>
+      <class name="NewltDevFeaturesTcs.CreateOrgWithMemberOf"/>
+      <class name="NewltDevFeaturesTcs.SendMailBulkOrganizations"/>
+      <class name="NewltDevFeaturesTcs.CreateContactWithOrganization"/>
+      <class name="NewltDevFeaturesTcs.sendBulkMail_OrganizationsWithReceipients"/>
+      <class name="NewltDevFeaturesTcs.ExportMailsOrg"/>
+      <class name="NewltDevFeaturesTcs.ExportContacts"/>
+      <class name="NewltDevFeaturesTcs.SendBulkMail_Contacts_WithRecepients"/>
+      <class name="NewltDevFeaturesTcs.ExportLeads"/>
+      <class name="NewltDevFeaturesTcs.SendMailBulkLeads"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

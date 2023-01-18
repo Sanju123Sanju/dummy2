@@ -1,6 +1,7 @@
 package NewltDevFeaturesTcs;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import ContactModulePomClasses.ContactPagePomPage;
 import Genericmethods.BaseClass;
