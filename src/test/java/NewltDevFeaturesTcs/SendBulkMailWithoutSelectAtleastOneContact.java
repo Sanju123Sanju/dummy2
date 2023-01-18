@@ -15,8 +15,7 @@ public class SendBulkMailWithoutSelectAtleastOneContact extends BaseClass{
 	public void send_BulkMail_WithoutSelectAtleastOne_Contact() {
 		homePagePomPage h= new homePagePomPage(driver);
 		h.clickContacts();
-		ContactPagePomPage c= new ContactPagePomPage(driver);
-		
+		ContactPagePomPage c= new ContactPagePomPage(driver);	
 		c.clicksendMailButton();
 		WebDriverUtilityMethods w= new WebDriverUtilityMethods();
 		w.alertSwitch(driver).accept();
